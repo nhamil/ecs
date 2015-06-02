@@ -28,5 +28,7 @@ public class EntityPrintingSystem extends EntitySystem
             if(e.get(Name.class) == null) System.err.println(e.toFullString() + " no name");
             System.out.println(e + ": " + e.get(Name.class).name);
         }
+        
+        System.out.println();
     }   
 }

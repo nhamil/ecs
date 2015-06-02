@@ -20,6 +20,7 @@ public class SampleMain
         ecs.registerComponent(Name.class);
         
         new EntityPrintingSystem();
+        new MovementSystem();
         
         Entity e = ecs.createEntity();
         e.add(new Name("My Entity"));
