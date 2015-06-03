@@ -11,10 +11,10 @@ import com.tenikkan.ecs.Component;
  */
 public class Velocity extends Component
 {   
-    public float dx = 0f;
-    public float dy = 0f;
+    public double dx = 0f;
+    public double dy = 0f;
     
-    public Velocity(float x, float y) 
+    public Velocity(double x, double y) 
     {
         this.dx = x; 
         this.dy = y;

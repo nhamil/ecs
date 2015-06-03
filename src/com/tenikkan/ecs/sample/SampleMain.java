@@ -5,6 +5,7 @@ package com.tenikkan.ecs.sample;
 
 import com.tenikkan.ecs.ECS;
 import com.tenikkan.ecs.Entity;
+import com.tenikkan.util.GameLoop;
 
 /**
  * @author Nicholas Hamilton
@@ -14,10 +15,20 @@ public class SampleMain
 {   
     public static void main(String args[]) 
     {
+        gameLoopTest();
+//        ecsTest();
+    }
+    
+    public static void gameLoopTest() 
+    {
+        GameLoop loop = new SampleGameLoop();
+        
+        loop.start();
+    }
+    
+    public static void ecsTest() 
+    {
         ECS ecs = new ECS();
-        ecs.registerComponent(Position.class);
-        ecs.registerComponent(Velocity.class);
-        ecs.registerComponent(Name.class);
         
         new EntityPrintingSystem();
         new MovementSystem();
@@ -42,6 +53,6 @@ public class SampleMain
         System.out.println(e.toFullString());
         System.out.println();
         
-        ecs.update();
+        ecs.updateAll();
     }
 }

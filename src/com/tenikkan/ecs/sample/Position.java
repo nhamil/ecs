@@ -11,10 +11,10 @@ import com.tenikkan.ecs.Component;
  */
 public class Position extends Component
 {   
-    public float x = 0f;
-    public float y = 0f;
+    public double x = 0f;
+    public double y = 0f;
     
-    public Position(float x, float y) 
+    public Position(double x, double y) 
     {
         this.x = x; 
         this.y = y;

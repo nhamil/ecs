@@ -56,7 +56,7 @@ public class Entity
         List<Component> comps = ecs.getAllComponents(this);
         for(Component c : comps) 
         {
-            str += "  " + c + "; \n";
+            str += "  " + c + " \n";
         }
         str += "}";
         

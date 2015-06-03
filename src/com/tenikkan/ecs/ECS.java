@@ -35,7 +35,7 @@ public class ECS
         EntitySystem.setECS(this);
     }
     
-    public void update() 
+    public void updateAll() 
     {
         for(EntitySystem es : systems) 
         {
@@ -72,7 +72,7 @@ public class ECS
     public <T extends Component> void registerComponent(Class<T> type) 
     {
         if(db.get(type) != null) 
-            throw new RuntimeException("Type " + type + " is already registered");
+            return;
         
         db.put(type, new HashMap<Integer, Component>());
     }
@@ -87,7 +87,7 @@ public class ECS
         HashMap<Integer, ? extends Component> tmpStore = db.get(type);
         
         if(tmpStore == null) 
-            throw new RuntimeException("No store for type " + type);
+            return null;
         
         T comp = (T)tmpStore.get(e.getID());
         
@@ -99,7 +99,10 @@ public class ECS
         HashMap<Integer, Component> tmpStore = db.get(c.getClass());
         
         if(tmpStore == null) 
-            throw new RuntimeException("No store for type " + c.getClass());
+        {
+            registerComponent(c.getClass());
+            tmpStore = db.get(c.getClass());
+        }
         
         tmpStore.put(e.getID(), c);
     }
@@ -109,7 +112,7 @@ public class ECS
         HashMap<Integer, Component> tmpStore = db.get(type);
         
         if(tmpStore == null) 
-            throw new RuntimeException("No store for type " + type);
+            return;
         
         tmpStore.remove(e.getID());
     }
