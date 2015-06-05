@@ -34,12 +34,12 @@ public class DebugPointRenderer extends EntitySystem
         {
             Position pos = e.get(Position.class);
             
-            g.setColor(Color.RED);
+            g.setColor(Color.BLUE);
             
             int radius = 10;
             
-            int x = (int)(pos.x * 10);
-            int y = (int)(pos.y * 10);
+            int x = (int)(pos.x);
+            int y = (int)(pos.y);
             
             g.fillOval(x - radius, y - radius, radius * 2, radius * 2);
         }

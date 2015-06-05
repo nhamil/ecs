@@ -27,6 +27,11 @@ public class Entity
         return ecs.getComponent(this, type);
     }
     
+    public <T extends Component> boolean contains(Class<T> type) 
+    {
+        return get(type) != null;
+    }
+    
     public void refresh() 
     {
         ecs.refreshEntity(this);

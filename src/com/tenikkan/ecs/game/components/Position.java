@@ -3,6 +3,8 @@
  */
 package com.tenikkan.ecs.game.components;
 
+import java.text.DecimalFormat;
+
 import com.tenikkan.ecs.Component;
 
 /**
@@ -11,6 +13,8 @@ import com.tenikkan.ecs.Component;
  */
 public class Position extends Component
 {   
+    private static DecimalFormat fmt = new DecimalFormat("0.00");
+    
     public double x = 0f;
     public double y = 0f;
     
@@ -22,6 +26,6 @@ public class Position extends Component
     
     public String toString() 
     {
-        return "Position: {" + x + ", " + y + "}";
+        return "Position: {" + fmt.format(x) + ", " + fmt.format(y) + "}";
     }
 }
